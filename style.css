@@ -11,6 +11,8 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
+  width: 0px;
+  background: transparent;
 }
 
 img {
@@ -57,10 +59,9 @@ nav ul {
   font-weight: 600;
 }
 
-
-
 .hero {
-  background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/christian-lambert-hlOpCML8twI-unsplash.jpg);
+  background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(images/christian-lambert-hlOpCML8twI-unsplash.jpg);
   background-size: cover;
   background-position: bottom;
   background-color: #333;
@@ -94,12 +95,17 @@ p {
   display: grid;
   gap: 1em;
   grid-template-columns: 1fr;
-  grid-template-areas: 
-  ". .. ."
-  ". b1 ."
-  ". b2 ."
-  ". b3 ."
-  ". .. .";
+  grid-auto-rows: min-content;
+  grid-template-areas:
+    ". .. ."
+    ". b6 ."
+    ". b5 ."
+    ". b4 ."
+    ". vm ."
+    ". b3 ."
+    ". b2 ."
+    ". b1 ."
+    ". .. .";
 }
 
 .blog-1 {
@@ -114,6 +120,30 @@ p {
   grid-area: b3;
 }
 
+.blog-4 {
+  grid-area: b4;
+}
+
+.blog-5 {
+  grid-area: b5;
+}
+
+.blog-6 {
+  grid-area: b6;
+}
+
+.view-more {
+  grid-area: vm;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.view-more:active,
+.view-more:hover {
+  color: rgb(106, 114, 122);
+}
+
 footer {
   background-color: #202020;
   height: 4rem;
@@ -123,6 +153,55 @@ footer {
   align-items: center;
 }
 
-footer h3, footer p {
+footer h3,
+footer p {
   color: whitesmoke;
+}
+
+.hidden {
+  display: none;
+}
+
+
+@media (min-width: 676px) {
+  nav {
+    padding: 1.2em 3em;
+  }
+
+  .logo {
+    gap: 1em;
+  }
+
+  .logo i {
+    font-size: 1.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    font-size: 0.85rem;
+    gap: 2em;
+  }
+
+  nav ul li {
+    cursor: pointer;
+  }
+
+  .hero {
+    height: 30.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 18rem;
+  }
+
+  .hero h2 {
+    font-size: 2.3rem;
+  }
+
+  .hero p {
+    max-width: 40%;
+    font-size: 1rem;
+  }
 }
